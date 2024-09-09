@@ -1,5 +1,3 @@
-// stores/users.js
-
 import { defineStore } from "pinia";
 import axios from "axios";
 
@@ -36,34 +34,26 @@ export const useUserStore = defineStore("user", {
       });
     },
     async updateUser(user) {
-      try {
-        const response = await axios.put(
-          `https://jsonplaceholder.typicode.com/posts/${user.id}`,
-          user
-        );
-        const stateUser = this.users.findIndex((u) => u.id === user.id);
-        if (stateUser !== -1) {
-          this.users[stateUser] = response.data;
-        }
-        return response.data;
-      } catch (error) {
-        console.error("Failed to update user", error);
+      const response = await axios.put(
+        `https://jsonplaceholder.typicode.com/posts/${user.id}`,
+        user
+      );
+      const stateUser = this.users.findIndex((u) => u.id === user.id);
+      if (stateUser !== -1) {
+        this.users[stateUser] = response.data;
       }
+      return response.data;
     },
     async deleteUser(user) {
-      try {
-        const response = await axios.delete(
-          `https://jsonplaceholder.typicode.com/posts/${user.id}`,
-          user
-        );
-        const stateUserIndex = this.users.findIndex((u) => u.id === user.id);
-        if (stateUserIndex !== -1) {
-          this.users.splice(stateUserIndex, 1);
-        }
-        return response.data;
-      } catch (error) {
-        console.error("Failed to update user", error);
+      const response = await axios.delete(
+        `https://jsonplaceholder.typicode.com/posts/${user.id}`,
+        user
+      );
+      const stateUserIndex = this.users.findIndex((u) => u.id === user.id);
+      if (stateUserIndex !== -1) {
+        this.users.splice(stateUserIndex, 1);
       }
+      return response.data;
     },
   },
 });
