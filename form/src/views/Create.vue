@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Form from '@/components/FormCreate.vue'
+import Form from "@/components/FormCreate.vue";
 </script>
 
 <template>

@@ -11,7 +11,7 @@
 <script>
 import { TITLE } from "./constants/constant";
 
-export default{
+export default {
   data() {
     return {
       TITLE,

@@ -14,7 +14,6 @@ import HelloWorld from './components/HelloWorld.vue'
           <router-link to="/">Home</router-link>
           <router-link to="/users">Users</router-link>
           <router-link to="/create">Create</router-link>
-          <router-link to="/update">Update</router-link>
           <router-link to="/delete">Delete</router-link>
         </nav>
       </div>

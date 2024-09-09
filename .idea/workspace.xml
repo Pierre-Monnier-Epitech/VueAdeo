@@ -4,11 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="104c8388-646f-4bbf-826a-444ec1ac95a4" name="Changes" comment="" />
+    <list default="true" id="104c8388-646f-4bbf-826a-444ec1ac95a4" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/form/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form/src/components/FormCreate.vue" beforeDir="false" afterPath="$PROJECT_DIR$/form/src/components/FormCreate.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form/src/components/HelloWorld.vue" beforeDir="false" afterPath="$PROJECT_DIR$/form/src/components/HelloWorld.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/form/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form/src/views/Create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/form/src/views/Create.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form/src/views/ListUsers.vue" beforeDir="false" afterPath="$PROJECT_DIR$/form/src/views/ListUsers.vue" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -26,8 +37,9 @@
     "JavaScript Debug.test.html.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/20016041/ADEO/vue js/form",
+    "last_opened_file_path": "/home/20016041/ADEO/vue js/VueAdeo",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -55,6 +67,7 @@
       <updated>1724836932304</updated>
       <workItem from="1724836933325" duration="1381000" />
       <workItem from="1725441007517" duration="294000" />
+      <workItem from="1725864471272" duration="886000" />
     </task>
     <servers />
   </component>

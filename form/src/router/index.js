@@ -11,19 +11,19 @@ const router = new VueRouter({
     {
       path: "/",
       name: "home",
-      component: HomeView
+      component: HomeView,
     },
     {
       path: "/users",
       name: "users",
-      component: () => import("../views/ListUsers.vue")
+      component: () => import("../views/ListUsers.vue"),
     },
     {
       path: "/create",
       name: "create",
-      component: () => import("../views/Create.vue")
-    }
-  ]
+      component: () => import("../views/Create.vue"),
+    },
+  ],
 });
 
 export default router;
