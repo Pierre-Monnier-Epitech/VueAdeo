@@ -34,7 +34,6 @@ export const useUserStore = defineStore("user", {
         first_name: first_name,
         last_name: last_name,
       });
-      alert("Your account is created");
     },
     async updateUser(user) {
       try {
@@ -45,6 +44,21 @@ export const useUserStore = defineStore("user", {
         const stateUser = this.users.findIndex((u) => u.id === user.id);
         if (stateUser !== -1) {
           this.users[stateUser] = response.data;
+        }
+        return response.data;
+      } catch (error) {
+        console.error("Failed to update user", error);
+      }
+    },
+    async deleteUser(user) {
+      try {
+        const response = await axios.delete(
+          `https://jsonplaceholder.typicode.com/posts/${user.id}`,
+          user
+        );
+        const stateUserIndex = this.users.findIndex((u) => u.id === user.id);
+        if (stateUserIndex !== -1) {
+          this.users.splice(stateUserIndex, 1);
         }
         return response.data;
       } catch (error) {

@@ -1,7 +1,16 @@
 <template>
   <div class="greetings">
     <HeaderTitle :title="TITLE_FORM" />
-    <UserForm :user="user" :isEditMode="false" @submitUser="submitUser" />
+    <UserForm
+      :user="newUser"
+      :isEditMode="false"
+      :resetAfterSubmit="true"
+      @submitUser="submitUser"
+    />
+    <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
+    <div v-if="successMessage" class="success-message">
+      {{ successMessage }}
+    </div>
   </div>
 </template>
 
@@ -18,19 +27,58 @@ export default {
   },
   data() {
     return {
-      user: {
+      newUser: {
         id: "",
         email: "",
         first_name: "",
         last_name: "",
       },
+      users: [],
+      errorMessage: "",
+      successMessage: "",
       TITLE_FORM,
     };
   },
+  mounted() {
+    this.fetchUsers();
+  },
   methods: {
-    submitUser() {
+    async fetchUsers() {
       const store = useUserStore();
-      store.createUser(this.user.id, this.user.email, this.user.first_name, this.user.last_name);
+      try {
+        this.users = await store.fetchUsers();
+        this.users = store.getUsers;
+      } catch (error) {
+        this.errorMessage = error.message;
+      }
+    },
+    async checkIfIdExists(id) {
+      return this.users.some((user) => String(user.id) === String(id));
+    },
+
+    async submitUser() {
+      const store = useUserStore();
+      const idExists = await this.checkIfIdExists(this.newUser.id);
+
+      if (idExists) {
+        this.errorMessage = "ID already taken. Please choose another ID.";
+        this.successMessage = null;
+        return;
+      }
+      store.createUser(
+        this.newUser.id,
+        this.newUser.email,
+        this.newUser.first_name,
+        this.newUser.last_name
+      );
+      this.newUser = {
+        id: "",
+        email: "",
+        first_name: "",
+        last_name: "",
+      };
+      this.errorMessage = null;
+      this.successMessage = "your account has been successfully created";
     },
   },
 };
@@ -46,11 +94,6 @@ form {
   padding: 1rem 2rem;
 }
 
-.InputForm {
-  width: 100%;
-  margin-bottom: 2rem;
-}
-
 .greetings h1 {
   text-align: center;
 }
@@ -60,5 +103,15 @@ form {
     display: block;
     text-align: left;
   }
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+}
+
+.success-message {
+  color: green;
+  font-weight: bold;
 }
 </style>

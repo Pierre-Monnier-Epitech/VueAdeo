@@ -23,6 +23,11 @@ const router = new VueRouter({
       name: "create",
       component: () => import("../views/Create.vue"),
     },
+    {
+      path: "/delete",
+      name: "delete",
+      component: () => import("../views/DeleteUser.vue"),
+    },
   ],
 });
 

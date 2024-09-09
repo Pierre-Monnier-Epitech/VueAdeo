@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div>
     <h1>List</h1>
     <div v-for="user in users" :key="user.id">
       <span @click="editUser(user)" class="pseudo">{{ user.id }} {{ user.first_name }} {{ user.last_name }}</span>
@@ -10,14 +10,16 @@
       v-if="selectedUser.id !== null"
       :user="selectedUser"
       :isEditMode="true"
+      :resetAfterSubmit="false"
       @submitUser="submitUser"
     />
+
+    <div v-if="errorMessage" class="error-message">{{ errorMessage }}</div>
   </div>
 </template>
 
 <script>
 import { useUserStore } from "@/stores/users";
-import { computed, onMounted } from "vue";
 import UserForm from "@/components/UserForm.vue";
 
 export default {
@@ -26,44 +28,45 @@ export default {
   },
   data() {
     return {
+      users: [],
       selectedUser: {
         id: null,
         email: "",
         first_name: "",
         last_name: "",
       },
+      errorMessage: null,
     };
   },
-  setup() {
-    const store = useUserStore();
-    const users = computed(() => store.getUsers);
-
-    onMounted(() => {
-      store.fetchUsers();
-    });
-
-    return {
-      users,
-      store,
-    };
+  mounted() {
+    this.fetchUsers();
   },
   methods: {
+    async fetchUsers() {
+      const store = useUserStore();
+      try {
+        await store.fetchUsers();
+        this.users = store.getUsers;
+      } catch (error) {
+        this.errorMessage = error.message;
+      }
+    },
     editUser(user) {
-      if (this.selectedUser?.id === user.id) {
-        this.selectedUser.id = null;
+      if (this.selectedUser.id === user.id) {
+        this.selectedUser = { id: null, email: "", first_name: "", last_name: "" };
       } else {
         this.selectedUser = { ...user };
       }
     },
     async submitUser() {
-      console.log("passé");
-      await this.store.updateUser(this.selectedUser);
-      this.selectedUser = {
-        id: null,
-        email: "",
-        first_name: "",
-        last_name: "",
-      };
+      const store = useUserStore();
+      try {
+        await store.updateUser(this.selectedUser);
+        this.selectedUser = { id: null, email: "", first_name: "", last_name: "" };
+        this.errorMessage = null;
+      } catch (error) {
+        this.errorMessage = error.message;
+      }
     },
   },
 };
@@ -71,8 +74,13 @@ export default {
 
 <style scoped>
 .pseudo {
-  color: blue;
+  color: green;
   cursor: pointer;
   text-decoration: underline;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
 }
 </style>

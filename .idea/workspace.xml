@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="104c8388-646f-4bbf-826a-444ec1ac95a4" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/form/src/components/DeleteUser.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/form/src/views/DeleteUser.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/form/src/App.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/form/src/components/FormCreate.vue" beforeDir="false" afterPath="$PROJECT_DIR$/form/src/components/FormCreate.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form/src/components/HelloWorld.vue" beforeDir="false" afterPath="$PROJECT_DIR$/form/src/components/HelloWorld.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form/src/components/ListUsers.vue" beforeDir="false" afterPath="$PROJECT_DIR$/form/src/components/ListUsers.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form/src/components/UserForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/form/src/components/UserForm.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/form/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/form/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form/src/views/Create.vue" beforeDir="false" afterPath="$PROJECT_DIR$/form/src/views/Create.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/form/src/views/ListUsers.vue" beforeDir="false" afterPath="$PROJECT_DIR$/form/src/views/ListUsers.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/form/src/stores/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/form/src/stores/users.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +68,7 @@
       <updated>1724836932304</updated>
       <workItem from="1724836933325" duration="1381000" />
       <workItem from="1725441007517" duration="294000" />
-      <workItem from="1725864471272" duration="886000" />
+      <workItem from="1725864471272" duration="19218000" />
     </task>
     <servers />
   </component>

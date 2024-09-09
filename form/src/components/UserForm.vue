@@ -56,6 +56,14 @@ export default {
       getUser: this.user,
     };
   },
+  watch: {
+    user: {
+      handler(newUser) {
+        this.localUser = { ...newUser };
+      },
+      deep: true,
+    },
+  },
   props: {
     user: {
       type: Object,
@@ -65,10 +73,20 @@ export default {
       type: Boolean,
       default: false,
     },
+    resetAfterSubmit: {
+      type: Boolean,
+      default: true,
+    },
   },
   methods: {
     submit() {
-      this.$emit("submitUser");
+      this.$emit("submitUser", this.localUser);
+      if (this.resetAfterSubmit && !this.isEditMode) {
+        this.resetForm();
+      }
+    },
+    resetForm() {
+      this.getUser = { id: "", email: "", first_name: "", last_name: "" };
     },
   },
 };
